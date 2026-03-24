@@ -1,0 +1,22 @@
+package com.example.fashionshop.modules.order.dto;
+
+import com.example.fashionshop.common.enums.OrderStatus;
+import lombok.Builder;
+import lombok.Data;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Data
+@Builder
+public class OrderResponse {
+    private Integer id;
+    private OrderStatus status;
+    private BigDecimal totalPrice;
+    private String receiverName;
+    private String phone;
+    private String shippingAddress;
+    private LocalDateTime createdAt;
+    private List<OrderItemResponse> items;
+}
