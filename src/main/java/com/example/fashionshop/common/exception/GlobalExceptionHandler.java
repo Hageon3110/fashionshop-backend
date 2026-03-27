@@ -33,6 +33,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Object>> handleForbidden(ForbiddenException ex) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ApiResponse.error(ex.getMessage()));
     }
+    
+    @ExceptionHandler(HomeDataLoadException.class)
+    public ResponseEntity<ApiResponse<Object>> handleHomeDataLoad(HomeDataLoadException ex) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ApiResponse.error(ex.getMessage()));
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<Object>> handleValidation(MethodArgumentNotValidException ex) {
